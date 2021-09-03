@@ -23,14 +23,14 @@ I was looking for a way to import all those products to use them for my clone e-
 - Open the main.py file with your favourite ide and edit code according to your model/endpoint:
 - Edit data object's field names  according to your product model.
 - Edit URL of the Post request according to your web service post products end point.
-##Running migration script
-####With Docker:
+## Running migration script
+#### With Docker:
 ```sh
 cd ecommerce-product-dataset-migrator
 sudo docker build -t dataset-migrator .
 sudo docker run --network="host" dataset-migrator
 ```
-####Without Docker:
+#### Without Docker:
 - Install Python 3.x
 - Run:
 ```sh
