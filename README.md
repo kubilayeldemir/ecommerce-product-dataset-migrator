@@ -18,15 +18,25 @@ I was looking for a way to import all those products to use them for my clone e-
 #### This piece of code creates product objects for each line in the dataset and sends a POST request to a web service you create.
 
 ## Installation
+- Clone the repository
+- Download dataset from [kaggle](https://www.kaggle.com/PromptCloudHQ/flipkart-products). And put the .csv file (named: flipkart_com-ecommerce_sample.csv) to input folder of the project.
+- Open the main.py file with your favourite ide and edit code according to your model/endpoint:
+- Edit data object's field names  according to your product model.
+- Edit URL of the Post request according to your web service post products end point.
+##Running migration script
+####With Docker:
+```sh
+cd ecommerce-product-dataset-migrator
+sudo docker build -t dataset-migrator .
+sudo docker run --network="host" dataset-migrator
+```
+####Without Docker:
 - Install Python 3.x
 - Run:
 ```sh
 pip install requirements.txt
 ```
-- Download dataset from [kaggle](https://www.kaggle.com/PromptCloudHQ/flipkart-products). And put the .csv file (named: flipkart_com-ecommerce_sample.csv) to input folder of the project.
-- Open the main.py file with your favourite ide and edit code according to your model/endpoint:
-- Edit data object's field names  according to your product model.
-- Edit URL of the Post request according to your web service post products end point.
+
 - Run main.py and wait it to end.
 
 ## Default Product Model
