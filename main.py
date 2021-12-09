@@ -11,7 +11,7 @@ Flipkart_data.info()
 counter = 0
 success = 0
 error = 0
-number_of_objects_per_request = 100 #send a post request for every 100 products parsed.
+number_of_objects_per_request = 1000 #send a post request for every 100 products parsed.
 
 product_list = []
 data = ObjDict()
@@ -42,17 +42,17 @@ for x in range(datasetLength):
         if counter == number_of_objects_per_request or x==datasetLength-1:
             json_list = json.dumps(product_list)
             headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
-            url = 'http://localhost:8080/api/products'
+            url = 'https://localhost:8001/bulk'
 
-            x = requests.post(url, data=json_list, headers=headers)
+            x = requests.post(url, data=json_list, headers=headers, verify=False)
 
             print("Request Status:" + x.text)
             product_list.clear()
             json_list = ""
             counter = 0
         success += 1
-    except:
-        print("Error, Couldn't create an object")
+    except Exception as e:
+        print(e)
         error += 1
 
 
